@@ -2,7 +2,6 @@
 package welcome
 
 import (
-	"strings"
 	"testing"
 
 	"github.com/bwmarrin/discordgo"
@@ -13,14 +12,19 @@ func TestFormatGreeting(t *testing.T) {
 	guild := &discordgo.Guild{Name: "Kai Server"}
 	messages := []string{"Hello {user}", "Welcome to {server}, {user}"}
 	got := formatGreeting(user, guild, messages)
-	if !strings.HasPrefix(got, "👋 <@123456> — ") {
-		t.Errorf("formatGreeting() = %q, want prefix %q", got, "👋 <@123456> — ")
+	want := []string{
+		"👋 <@123456> — Hello alice",
+		"👋 <@123456> — Welcome to Kai Server, alice",
 	}
-	if !strings.Contains(got, "alice") {
-		t.Errorf("formatGreeting() = %q, does not contain user name", got)
+	found := false
+	for _, w := range want {
+		if got == w {
+			found = true
+			break
+		}
 	}
-	if !strings.Contains(got, "Kai Server") {
-		t.Errorf("formatGreeting() = %q, does not contain server name", got)
+	if !found {
+		t.Errorf("formatGreeting() = %q, want one of %v", got, want)
 	}
 }
 

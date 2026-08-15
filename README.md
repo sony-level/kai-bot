@@ -44,20 +44,33 @@ Development:
 go run ./cmd/kai
 ```
 
-Production:
+## Production
+
+Create the production environment file and fill in your Discord token:
+
+```bash
+cp .env.example .env.prod
+```
+
+### Binary
 
 ```bash
 ENV=production go build -o kai ./cmd/kai
 ./kai
 ```
 
-## Run with Docker
+### Docker Compose
 
 ```bash
 docker compose up -d
 ```
 
-Uses the image published on GHCR (`ghcr.io/sony-level/kai-bot`) and reads `.env.prod`.
+### GHCR image
+
+```bash
+docker pull ghcr.io/sony-level/kai-bot:latest
+docker run -d --env-file .env.prod ghcr.io/sony-level/kai-bot:latest
+```
 
 ## Tests
 

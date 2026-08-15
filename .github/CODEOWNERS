@@ -1,0 +1,14 @@
+# Global owners for the whole repository
+* @sony-level
+
+# CI/CD and release workflows
+/.github/workflows/ @sony-level
+
+# Branching and contribution rules
+/CODEOWNERS @sony-level
+/CONTRIBUTING.md @sony-level
+
+# Core configuration
+/.env.example @sony-level
+/docker-compose.yml @sony-level
+/Dockerfile @sony-level
