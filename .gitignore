@@ -24,9 +24,15 @@ profile.cov
 go.work
 go.work.sum
 
-# env file
+# env files
 .env
+.env.dev
+.env.prod
 
 # Editor/IDE
-# .idea/
-# .vscode/
+.idea/
+.vscode/
+
+# Compiled binary
+/kai
+/kai-bot
