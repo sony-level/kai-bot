@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  kai:
+    image: ghcr.io/sony-level/kai-bot:latest
+    env_file:
+      - .env.prod
+    restart: unless-stopped
